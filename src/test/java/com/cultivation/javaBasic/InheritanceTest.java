@@ -14,7 +14,7 @@ class InheritanceTest {
     void should_be_derived_from_object_class() {
         // TODO: please modify the following code to pass the test
         // <--start
-        final Class<?> expectedSuperClass = null;
+        final Class<?> expectedSuperClass = Object.class;
         // --end-->
 
         assertEquals(expectedSuperClass, SimpleEmptyClass.class.getSuperclass());
@@ -26,7 +26,7 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final String[] expected = {};
+        final String[] expected = {"SuperClassWithDefaultConstructor.constructor()", "DerivedFromSuperClassWithDefaultConstructor.constructor()"};
         // --end-->
 
         String[] logs = instance.getLogs();
@@ -40,9 +40,10 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final String[] expected = {};
+        final String[] expected = {"SuperClassWithDefaultConstructor.constructor()", "DerivedFromSuperClassWithDefaultConstructor.constructor()",
+            "DerivedFromSuperClassWithDefaultConstructor.constructor(int)"
+        };
         // --end-->
-
         String[] logs = instance.getLogs();
 
         assertArrayEquals(expected, logs);
@@ -54,7 +55,8 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final String[] expected = {};
+        final String[] expected = {
+            "SuperClassWithDefaultConstructor.constructor(String)", "DerivedFromSuperClassWithDefaultConstructor.constructor(String)"};
         // --end-->
 
         String[] logs = instance.getLogs();
@@ -68,7 +70,7 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final String expectedName = null;
+        final String expectedName = "DerivedFromBaseClassForOverriding";
         // --end-->
 
         assertEquals(expectedName, instance.getName());
@@ -80,7 +82,7 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final String expectedName = null;
+        final String expectedName = "BaseClassForOverriding->DerivedFromBaseClassForOverridingCallingSuper";
         // --end-->
 
         assertEquals(expectedName, instance.getName());
@@ -102,7 +104,7 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final Optional<Boolean> expected = Optional.empty();
+        final Optional<Boolean> expected = Optional.of(true);
         // --end-->
 
         assertEquals(expected.get(), willThrow);
@@ -116,7 +118,7 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final String expected = null;
+        final String expected = "NestedDerivedClassWithName";
         // --end-->
 
         assertEquals(expected, derived.getName());
@@ -128,7 +130,7 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final String expected = null;
+        final String expected = "BaseClassWithName";
         // --end-->
 
         assertEquals(expected, derived.getName());
@@ -141,9 +143,9 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final Optional<Boolean> expectedResult1 = Optional.empty();
-        final Optional<Boolean> expectedResult2 = Optional.empty();
-        final Optional<Boolean> expectedResult3 = Optional.empty();
+        final Optional<Boolean> expectedResult1 = Optional.of(true);
+        final Optional<Boolean> expectedResult2 = Optional.of(true);
+        final Optional<Boolean> expectedResult3 = Optional.of(true);
         // --end-->
 
         assertEquals(expectedResult1.get(), nested instanceof NestedDerivedClassWithName);
@@ -158,18 +160,18 @@ class InheritanceTest {
 
         // TODO: please modify the following code to pass the test
         // <--start
-        final Optional<Boolean> expectedResult1 = Optional.empty();
-        final Optional<Boolean> expectedResult2 = Optional.empty();
+        final Optional<Boolean> expectedResult1 = Optional.of(true);
+        final Optional<Boolean> expectedResult2 = Optional.of(false);
         // --end-->
 
-        assertEquals(expectedResult1.get(), integer instanceof Integer );
-        assertEquals(expectedResult2.get(), integer instanceof Long );
+        assertEquals(expectedResult1.get(), integer instanceof Integer);
+        assertEquals(expectedResult2.get(), integer instanceof Long);
     }
 
     @SuppressWarnings({"SimplifiableJUnitAssertion", "EqualsWithItself"})
     @Test
     void should_write_perfect_equals_1() {
-        PersonForEquals person = new PersonForEquals("James", (short) 1990);
+        PersonForEquals person = new PersonForEquals("James", (short)1990);
 
         assertTrue(person.equals(person));
     }
@@ -177,8 +179,8 @@ class InheritanceTest {
     @SuppressWarnings("SimplifiableJUnitAssertion")
     @Test
     void should_write_perfect_equals_2() {
-        PersonForEquals person = new PersonForEquals("James", (short) 1990);
-        PersonForEquals samePerson = new PersonForEquals("James", (short) 1990);
+        PersonForEquals person = new PersonForEquals("James", (short)1990);
+        PersonForEquals samePerson = new PersonForEquals("James", (short)1990);
 
         assertTrue(person.equals(samePerson));
         assertTrue(samePerson.equals(person));
@@ -187,9 +189,9 @@ class InheritanceTest {
     @SuppressWarnings("SimplifiableJUnitAssertion")
     @Test
     void should_write_perfect_equals_3() {
-        PersonForEquals person = new PersonForEquals("James", (short) 1990);
-        PersonForEquals samePerson = new PersonForEquals("James", (short) 1990);
-        PersonForEquals stillTheSamePerson = new PersonForEquals("James", (short) 1990);
+        PersonForEquals person = new PersonForEquals("James", (short)1990);
+        PersonForEquals samePerson = new PersonForEquals("James", (short)1990);
+        PersonForEquals stillTheSamePerson = new PersonForEquals("James", (short)1990);
 
         assertTrue(person.equals(samePerson));
         assertTrue(samePerson.equals(stillTheSamePerson));
@@ -199,7 +201,7 @@ class InheritanceTest {
     @SuppressWarnings({"ConstantConditions", "ObjectEqualsNull", "SimplifiableJUnitAssertion"})
     @Test
     void should_write_perfect_equals_4() {
-        PersonForEquals person = new PersonForEquals("James", (short) 1990);
+        PersonForEquals person = new PersonForEquals("James", (short)1990);
 
         assertFalse(person.equals(null));
     }
@@ -207,7 +209,7 @@ class InheritanceTest {
     @SuppressWarnings({"EqualsBetweenInconvertibleTypes", "SimplifiableJUnitAssertion", "UnnecessaryBoxing"})
     @Test
     void should_write_perfect_equals_5() {
-        PersonForEquals person = new PersonForEquals("James", (short) 1990);
+        PersonForEquals person = new PersonForEquals("James", (short)1990);
         Integer instanceWithOtherType = new Integer(1990);
 
         assertFalse(person.equals(instanceWithOtherType));
@@ -216,8 +218,8 @@ class InheritanceTest {
     @SuppressWarnings("SimplifiableJUnitAssertion")
     @Test
     void should_write_perfect_equals_6() {
-        PersonForEquals person = new PersonForEquals("James", (short) 1990);
-        PersonForEquals different = new PersonForEquals("James", (short) 1991);
+        PersonForEquals person = new PersonForEquals("James", (short)1990);
+        PersonForEquals different = new PersonForEquals("James", (short)1991);
 
         assertFalse(person.equals(different));
         assertFalse(different.equals(person));
@@ -225,10 +227,10 @@ class InheritanceTest {
 
     @Test
     void should_write_perfect_equals_7() {
-        PersonForEquals person = new PersonForEquals("James", (short) 1990);
-        PersonForEquals different1 = new PersonForEquals("James", (short) 1991);
-        PersonForEquals different2 = new PersonForEquals("Harry", (short) 1990);
-        PersonForEquals samePerson = new PersonForEquals("James", (short) 1990);
+        PersonForEquals person = new PersonForEquals("James", (short)1990);
+        PersonForEquals different1 = new PersonForEquals("James", (short)1991);
+        PersonForEquals different2 = new PersonForEquals("Harry", (short)1990);
+        PersonForEquals samePerson = new PersonForEquals("James", (short)1990);
 
         assertNotEquals(person.hashCode(), different1.hashCode());
         assertNotEquals(person.hashCode(), different2.hashCode());
