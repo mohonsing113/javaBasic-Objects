@@ -109,8 +109,26 @@ If you just want to build your code without running test. Please use `./gradlew 
 1. it is object, so = Object.class
 1. NO
 
-* should_call_super_class_constructor, should_call_super_class_constructor_continued, should_call_super_class_constructor_more()
+* should_call_super_class_constructor(), should_call_super_class_constructor_continued(), should_call_super_class_constructor_more(), should_call_super_class_methods(), should_not_make_you_confused, should_not_make_you_confused_2
 1. Call superclass method
-2. it expect []
-3. Get String from superclass as expected result
-4. NO
+1. it expect null
+1. Get String from superclass as expected result
+1. NO
+
+* should_call_most_derived_methods()
+1. Call the most derived method if same method appear in super class and itself
+1. it expect null
+1. get String from most derived method as expected result
+1. NO
+
+* should_use_instance_of_to_determine_inheritance_relationship()
+1. same instance if inheritance relationship
+1. expected optional.empty
+1. all true due to inheritance relationship
+1. NO
+
+* should_use_instance_of_only_in_inheritance_relationship
+1. not same instance if not inheritance relationship
+1. expected optional.empty
+1. Long has no inheritance relationship with integer, so false
+1. NO
