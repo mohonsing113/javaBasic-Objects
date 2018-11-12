@@ -132,3 +132,88 @@ If you just want to build your code without running test. Please use `./gradlew 
 1. expected optional.empty
 1. Long has no inheritance relationship with integer, so false
 1. NO
+
+* should_write_perfect_equals_1, should_write_perfect_equals_2, should_write_perfect_equals_3, should_write_perfect_equals_6
+1. == operator only check reference not logically equals
+1. methods not implemented
+1. implemented a method that check both variables are equal
+1. NO
+
+* should_write_perfect_equals_4, should_write_perfect_equals_5
+1. exception handling
+1. methods not implemented
+1. add try catch block in equals()
+1. NO
+
+* should_write_perfect_equals_7
+1. create hascode
+1. methods not implemented
+1. implemented a method that return hashCode create by its own fields
+1. NO
+
+* should_get_method_name_in_stack_frame
+1. get mehod name
+1. methods not implemented
+1. get the name of method and class
+1. NO
+
+* should_point_to_the_same_object
+1. object refence behavior
+1. expected empty
+1. they are same object
+1. NO
+
+* should_point_to_different_object
+1. object refence behavior
+1. expected empty
+1. they are not same object even the data inside are same, so = false
+1. NO
+
+* should_initialized_to_default_value
+1. instance behavior
+1. expected setted value
+1. they have not same at instance so the getter will return null / 0
+1. NO
+
+* should_pass_by_value
+1. parameter behavior
+1. expected 0
+1. primitive type pass in method will not affect it original
+1. NO
+
+* should_pass_by_value
+1. parameter behavior
+1. expected null
+1. object type pass in method will be the reference and will be affected
+1. NO
+
+* should_modify_internal_state
+1. using a method can update an object internal state outside
+1. expected null
+1. copy the new string as result
+1. NO
+
+* should_choose_method_at_compile_time, should_choose_the_most_specific_overload
+1. parameter behavior
+1. expected null
+1. method is chosen based on parameter type and number of parameter
+1. NO
+
+* should_calling_another_constructor
+1. constructor behavior
+1. expected null
+1. constructor can be mutiple as methods too, same chosing constructor logic applied constructor
+1. NO
+
+* should_get_initialization_ordering
+1. order of init
+1. expect []
+1. input the correct order
+1. NO
+
+* should_get_message_of_var_length_parameters, should_get_message_of_var_length_parameters_2
+1. usage of Object... args parameter type compared to new Object[]
+1. expect null
+1. input the builder result
+1. NO
+
